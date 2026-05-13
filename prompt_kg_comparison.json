@@ -1,0 +1,576 @@
+{
+  "simple_prompt": "\nExtract noun-verb-noun triples from the poem. Return only triples in the format:\n(entity, relationship, entity).\n",
+  "fcot_prompt": "\nBuild a knowledge graph from the poem using a faithful structured reasoning process:\n1. Identify concrete entities, especially nouns and proper nouns.\n2. Identify relationship words, especially verbs.\n3. Use grammar/dependency structure to connect subjects to objects.\n4. Include direct objects, indirect objects, and prepositional objects when available.\n5. Remove invalid triples, duplicates, and subject-object self loops.\n6. Return the final graph as entity-relationship-entity triples.\n",
+  "comparison_table": [
+    {
+      "title": "Departure",
+      "author": "Rachael Quisel",
+      "category": "gold_standard",
+      "simple_triples": 4,
+      "fcot_triples": 75,
+      "simple_nodes": 8,
+      "fcot_nodes": 89,
+      "simple_edges": 4,
+      "fcot_edges": 74,
+      "simple_relation_diversity": 4,
+      "fcot_relation_diversity": 51,
+      "interpretation": "FCoT produced a richer or equal graph"
+    },
+    {
+      "title": "A Case is a Wave",
+      "author": "Brook McClurg",
+      "category": "gold_standard",
+      "simple_triples": 3,
+      "fcot_triples": 61,
+      "simple_nodes": 6,
+      "fcot_nodes": 81,
+      "simple_edges": 3,
+      "fcot_edges": 61,
+      "simple_relation_diversity": 3,
+      "fcot_relation_diversity": 38,
+      "interpretation": "FCoT produced a richer or equal graph"
+    },
+    {
+      "title": "I Wandered Lonely as a Cloud",
+      "author": "William Wordsworth",
+      "category": "pedestrian",
+      "simple_triples": 0,
+      "fcot_triples": 3,
+      "simple_nodes": 0,
+      "fcot_nodes": 5,
+      "simple_edges": 0,
+      "fcot_edges": 3,
+      "simple_relation_diversity": 0,
+      "fcot_relation_diversity": 3,
+      "interpretation": "FCoT produced a richer or equal graph"
+    },
+    {
+      "title": "Hope is the thing with feathers",
+      "author": "Emily Dickinson",
+      "category": "pedestrian",
+      "simple_triples": 0,
+      "fcot_triples": 1,
+      "simple_nodes": 0,
+      "fcot_nodes": 2,
+      "simple_edges": 0,
+      "fcot_edges": 1,
+      "simple_relation_diversity": 0,
+      "fcot_relation_diversity": 1,
+      "interpretation": "FCoT produced a richer or equal graph"
+    }
+  ],
+  "mermaid_outputs": {
+    "Departure": {
+      "simple_mermaid": "graph TD\n%% Simple KG: Departure\n    snuff[snuff] -->|color| leaves[leaves]\n    vanity[vanity] -->|desilvere| mirror[mirror]\n    mother[mother] -->|drop| chunks[chunks]\n    review[review] -->|nominate| departure[departure]",
+      "fcot_mermaid": "graph TD\n%% FCoT KG: Departure\n    it[it] -->|\u2019| time[time]\n    someone[someone] -->|take| hand[hand]\n    he[he] -->|double| couch[couch]\n    i[i] -->|know| what[what]\n    she[she] -->|take| nap[nap]\n    she[she] -->|take| diabetes[diabetes]\n    they[they] -->|pat| hair[hair]\n    he[he] -->|take| pills[pills]\n    he[he] -->|take| mornings[mornings]\n    i[i] -->|realize| time[time]\n    father[father] -->|tell| me[me]\n    i[i] -->|cut| image[image]\n    he[he] -->|take| part[part]\n    he[he] -->|tuck| shirt[shirt]\n    he[he] -->|tuck| paunch[paunch]\n    i[i] -->|feel| tap[tap]\n    she[she] -->|make| contact[contact]\n    i[i] -->|say| nothing[nothing]\n    i[i] -->|count| french[french]\n    i[i] -->|count| convulses[convulses]\n    i[i] -->|shoot| surface[surface]\n    i[i] -->|skim| leaves[leaves]\n    bodies[bodies] -->|disintegrate| disperse[disperse]\n    massacre[massacre] -->|happen| side[side]\n    father[father] -->|tap| years[years]\n    father[father] -->|tap| it[it]\n    father[father] -->|tap| palm[palm]\n    i[i] -->|arrive| curfew[curfew]\n    i[i] -->|point| barrel[barrel]\n    i[i] -->|point| reflection[reflection]",
+      "fcot_reasoning_summary": {
+        "entities_identified": [
+          "adults",
+          "air",
+          "aisle",
+          "ama",
+          "animals",
+          "answers",
+          "apron",
+          "arms",
+          "asphalt",
+          "astronaut",
+          "baby",
+          "barbara",
+          "barrel",
+          "bedroom",
+          "bedside",
+          "bodies",
+          "bottom",
+          "box",
+          "brian",
+          "bruce",
+          "business",
+          "call",
+          "candidate",
+          "car",
+          "carpet",
+          "cat",
+          "cataract",
+          "cats",
+          "chest",
+          "chicken"
+        ],
+        "relations_identified": [
+          "accept",
+          "arrive",
+          "ask",
+          "bear",
+          "begin",
+          "belly",
+          "bread",
+          "close",
+          "color",
+          "come",
+          "cost",
+          "count",
+          "create",
+          "cry",
+          "cut",
+          "desilvere",
+          "die",
+          "dig",
+          "discharge",
+          "disintegrate",
+          "dislocate",
+          "disrespect",
+          "do",
+          "double",
+          "drive",
+          "drop",
+          "drown",
+          "feel",
+          "fold",
+          "forget"
+        ],
+        "validated_triples": [
+          [
+            "it",
+            "\u2019",
+            "time"
+          ],
+          [
+            "someone",
+            "take",
+            "hand"
+          ],
+          [
+            "he",
+            "double",
+            "couch"
+          ],
+          [
+            "i",
+            "know",
+            "what"
+          ],
+          [
+            "she",
+            "take",
+            "nap"
+          ],
+          [
+            "she",
+            "take",
+            "diabetes"
+          ],
+          [
+            "they",
+            "pat",
+            "hair"
+          ],
+          [
+            "he",
+            "take",
+            "pills"
+          ],
+          [
+            "he",
+            "take",
+            "mornings"
+          ],
+          [
+            "i",
+            "realize",
+            "time"
+          ],
+          [
+            "father",
+            "tell",
+            "me"
+          ],
+          [
+            "i",
+            "cut",
+            "image"
+          ],
+          [
+            "he",
+            "take",
+            "part"
+          ],
+          [
+            "he",
+            "tuck",
+            "shirt"
+          ],
+          [
+            "he",
+            "tuck",
+            "paunch"
+          ],
+          [
+            "i",
+            "feel",
+            "tap"
+          ],
+          [
+            "she",
+            "make",
+            "contact"
+          ],
+          [
+            "i",
+            "say",
+            "nothing"
+          ],
+          [
+            "i",
+            "count",
+            "french"
+          ],
+          [
+            "i",
+            "count",
+            "convulses"
+          ],
+          [
+            "i",
+            "shoot",
+            "surface"
+          ],
+          [
+            "i",
+            "skim",
+            "leaves"
+          ],
+          [
+            "bodies",
+            "disintegrate",
+            "disperse"
+          ],
+          [
+            "massacre",
+            "happen",
+            "side"
+          ],
+          [
+            "father",
+            "tap",
+            "years"
+          ],
+          [
+            "father",
+            "tap",
+            "it"
+          ],
+          [
+            "father",
+            "tap",
+            "palm"
+          ],
+          [
+            "i",
+            "arrive",
+            "curfew"
+          ],
+          [
+            "i",
+            "point",
+            "barrel"
+          ],
+          [
+            "i",
+            "point",
+            "reflection"
+          ]
+        ]
+      }
+    },
+    "A Case is a Wave": {
+      "simple_mermaid": "graph TD\n%% Simple KG: A Case is a Wave\n    officers[officers] -->|keep| track[track]\n    brother[brother] -->|kiss| goodbye[goodbye]\n    waters[waters] -->|await| recede[recede]",
+      "fcot_mermaid": "graph TD\n%% FCoT KG: A Case is a Wave\n    visitors[visitors] -->|remind| rules[rules]\n    brother[brother] -->|tell| duh[duh]\n    they[they] -->|\u2019re| visitors[visitors]\n    they[they] -->|\u2019re| edge[edge]\n    they[they] -->|come| times[times]\n    sister[sister] -->|fix| front[front]\n    they[they] -->|\u2019re| guests[guests]\n    guards[guards] -->|check| bag[bag]\n    others[others] -->|look| me[me]\n    inmate[inmate] -->|take| guests[guests]\n    prisoners[prisoners] -->|sound| royalty[royalty]\n    clipboard[clipboard] -->|convince| them[them]\n    they[they] -->|do| job[job]\n    officer[officer] -->|open| door[door]\n    prisoner[prisoner] -->|stand| line[line]\n    prisoner[prisoner] -->|wait| door[door]\n    prisoner[prisoner] -->|touch| visitor[visitor]\n    prisoner[prisoner] -->|show| hands[hands]\n    prisoner[prisoner] -->|show| photo[photo]\n    prisoner[prisoner] -->|have| copy[copy]\n    we[we] -->|\u2019re| prison[prison]\n    officers[officers] -->|keep| track[track]\n    they[they] -->|keep| doors[doors]\n    visitors[visitors] -->|possess| paraphernalia[paraphernalia]\n    which[which] -->|ban| colors[colors]\n    brother[brother] -->|kiss| jerseys[jerseys]\n    brother[brother] -->|kiss| love[love]\n    inmate[inmate] -->|ask| mother[mother]\n    you[you] -->|come| visits[visits]\n    visitors[visitors] -->|carry| items[items]",
+      "fcot_reasoning_summary": {
+        "entities_identified": [
+          "-",
+          "appeal",
+          "appeals",
+          "attitude",
+          "award",
+          "b.a.",
+          "bag",
+          "birth",
+          "blanket",
+          "border",
+          "brook",
+          "brother",
+          "california",
+          "camden",
+          "car",
+          "care",
+          "case",
+          "change",
+          "clipboard",
+          "clocks",
+          "colors",
+          "columbia",
+          "convict",
+          "convicts",
+          "cop",
+          "copy",
+          "corrections",
+          "creative",
+          "custody",
+          "date"
+        ],
+        "relations_identified": [
+          "accept",
+          "appear",
+          "arrive",
+          "ask",
+          "await",
+          "ban",
+          "bring",
+          "carry",
+          "change",
+          "check",
+          "close",
+          "come",
+          "complicate",
+          "confer",
+          "consider",
+          "control",
+          "convince",
+          "crash",
+          "depend",
+          "dishevel",
+          "do",
+          "embrace",
+          "eye",
+          "fix",
+          "get",
+          "give",
+          "go",
+          "grow",
+          "happen",
+          "have"
+        ],
+        "validated_triples": [
+          [
+            "visitors",
+            "remind",
+            "rules"
+          ],
+          [
+            "brother",
+            "tell",
+            "duh"
+          ],
+          [
+            "they",
+            "\u2019re",
+            "visitors"
+          ],
+          [
+            "they",
+            "\u2019re",
+            "edge"
+          ],
+          [
+            "they",
+            "come",
+            "times"
+          ],
+          [
+            "sister",
+            "fix",
+            "front"
+          ],
+          [
+            "they",
+            "\u2019re",
+            "guests"
+          ],
+          [
+            "guards",
+            "check",
+            "bag"
+          ],
+          [
+            "others",
+            "look",
+            "me"
+          ],
+          [
+            "inmate",
+            "take",
+            "guests"
+          ],
+          [
+            "prisoners",
+            "sound",
+            "royalty"
+          ],
+          [
+            "clipboard",
+            "convince",
+            "them"
+          ],
+          [
+            "they",
+            "do",
+            "job"
+          ],
+          [
+            "officer",
+            "open",
+            "door"
+          ],
+          [
+            "prisoner",
+            "stand",
+            "line"
+          ],
+          [
+            "prisoner",
+            "wait",
+            "door"
+          ],
+          [
+            "prisoner",
+            "touch",
+            "visitor"
+          ],
+          [
+            "prisoner",
+            "show",
+            "hands"
+          ],
+          [
+            "prisoner",
+            "show",
+            "photo"
+          ],
+          [
+            "prisoner",
+            "have",
+            "copy"
+          ],
+          [
+            "we",
+            "\u2019re",
+            "prison"
+          ],
+          [
+            "officers",
+            "keep",
+            "track"
+          ],
+          [
+            "they",
+            "keep",
+            "doors"
+          ],
+          [
+            "visitors",
+            "possess",
+            "paraphernalia"
+          ],
+          [
+            "which",
+            "ban",
+            "colors"
+          ],
+          [
+            "brother",
+            "kiss",
+            "jerseys"
+          ],
+          [
+            "brother",
+            "kiss",
+            "love"
+          ],
+          [
+            "inmate",
+            "ask",
+            "mother"
+          ],
+          [
+            "you",
+            "come",
+            "visits"
+          ],
+          [
+            "visitors",
+            "carry",
+            "items"
+          ]
+        ]
+      }
+    },
+    "I Wandered Lonely as a Cloud": {
+      "simple_mermaid": "graph TD\n%% Simple KG: I Wandered Lonely as a Cloud",
+      "fcot_mermaid": "graph TD\n%% FCoT KG: I Wandered Lonely as a Cloud\n    i[i] -->|wander| cloud[cloud]\n    that[that] -->|float| vales[vales]\n    i[i] -->|see| crowd[crowd]",
+      "fcot_reasoning_summary": {
+        "entities_identified": [
+          "breeze",
+          "cloud",
+          "crowd",
+          "daffodils",
+          "hills",
+          "host",
+          "lake",
+          "o'er",
+          "trees",
+          "vales"
+        ],
+        "relations_identified": [
+          "dance",
+          "float",
+          "flutter",
+          "see",
+          "wander"
+        ],
+        "validated_triples": [
+          [
+            "i",
+            "wander",
+            "cloud"
+          ],
+          [
+            "that",
+            "float",
+            "vales"
+          ],
+          [
+            "i",
+            "see",
+            "crowd"
+          ]
+        ]
+      }
+    },
+    "Hope is the thing with feathers": {
+      "simple_mermaid": "graph TD\n%% Simple KG: Hope is the thing with feathers",
+      "fcot_mermaid": "graph TD\n%% FCoT KG: Hope is the thing with feathers\n    that[that] -->|perch| soul[soul]",
+      "fcot_reasoning_summary": {
+        "entities_identified": [
+          "feathers",
+          "hope",
+          "soul",
+          "thing",
+          "tune",
+          "words"
+        ],
+        "relations_identified": [
+          "perch",
+          "sing",
+          "stop"
+        ],
+        "validated_triples": [
+          [
+            "that",
+            "perch",
+            "soul"
+          ]
+        ]
+      }
+    }
+  }
+}
